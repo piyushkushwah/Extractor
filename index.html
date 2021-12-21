@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Excel Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">EXTRACTOR</span>
+        </div>
+    </nav>
+    <div id="alerts"></div>
+    <div class="container mt-3 mb-3" style=" flex:1 1 auto;">
+        <div class="row">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Excel File</label>
+                <input id="excelFileUploader" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    class="form-control" type="file" id="formFile">
+            </div>
+            <div class="form-floating">
+                <textarea style="height: 68.7vh;" class="form-control" readonly placeholder="Copy JSON from here"
+                    id="jsonTextArea"></textarea>
+                <div class="mt-3">
+                    <button id="copyJson" disabled onclick="copyToClipBoard()" class="btn btn-success">Copy</button>
+                    <button onclick="reset()" id="resetJson" disabled class="btn btn-danger">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer bg-dark p-2 w-100">
+        <div class="container-fluid">
+            <span style="font-size: 0.76rem;font-weight: normal" class="text-white mb-0">&copy; 2021 EXTRACTOR.All
+                RIGHTS
+                RESERVED.</span>
+        </div>
+    </footer>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="copyToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+
+            <div class="d-flex">
+                <div class="toast-body">
+                    Text Copied Successfully!!!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+</body>
+
+</html>
